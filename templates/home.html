@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Your Product</title>
+    <style>
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+        .button-container button {
+            width: 200px;
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        .cta-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            align-items: center;
+        }
+        .cta-button {
+            width: 80px;
+            height: 80px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            cursor: pointer;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            z-index: 1000;
+            position: relative;
+        }
+        .cta-button:hover {
+            background-color: #0056b3;
+        }
+        .cta-text {
+            margin-right: 100px; /* Space between the text and the button */
+            text-align: right;
+        }
+        .cta-text .main-text {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .cta-text .sub-text {
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Find Your Product</h1>
+    <div class="button-container">
+        <button onclick="location.href='{{ url_for('manual_entry') }}'">Enter Name Manually</button>
+        <button onclick="location.href='{{ url_for('speech_to_text') }}'">Speech to Text</button>
+        <button onclick="location.href='{{ url_for('barcode') }}'">Capture/Upload Barcode Image</button>
+    </div>
+    <div class="cta-container">
+        <div class="cta-text">
+            <div class="main-text">Be Smart</div>
+            <div class="sub-text">Find healthier alternatives using AI!</div>
+        </div>
+        <button class="cta-button" onclick="openChatbot()">
+            <span class="main-text">Be Smart</span>
+        </button>
+    </div>
+
+    <script>
+        function openChatbot() {
+            window.location.href = '{{ url_for("chatbot") }}';
+        }
+    </script>
+</body>
+</html>

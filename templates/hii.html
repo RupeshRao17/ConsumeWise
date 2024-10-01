@@ -1,0 +1,63 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConsumeWise</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/hii.css') }}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+<!-- Owl Carousel JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+</head>
+<body>
+
+    <div id="hamburger-icon">
+        &#9776;
+    </div>
+
+    <div id="sidebar">
+        <div class="sidebar-content">
+            <div class="sidebar-item" onclick="window.location.href='/barcode';">Scan Item</div>
+            <div class="sidebar-item" onclick="window.location.href='/manual-entry';">Search Item</div>
+            <div class="sidebar-item" onclick="window.location.href='/chatbot';">Ask AI</div>
+
+
+        </div>
+    </div>
+
+    <div id="video-loader">
+        <video id="loader-video" autoplay muted playsinline>
+            <source src="{{ url_for('static', filename='images/CV.mp4') }}" type="video/mp4">
+        </video>
+    </div>
+
+    <img id="final-logo" src="{{ url_for('static', filename='images/ConsumeWise.png') }}" alt="Logo">
+
+    <div id="consume-wise">
+        <span>C</span><span>O</span><span>N</span><span>S</span><span>U</span><span>M</span><span>E</span>
+        <span>W</span><span>I</span><span>S</span><span>E</span>
+    </div>
+   <div id="title-container">
+           <h2>Look For Information About Your Product</h2>
+   </div>
+       <div id="button-container">
+        <button class="action-button" onclick="window.location.href='/barcode';">Scan Item</button>
+        <button class="action-button" onclick="window.location.href='/manual-entry';">Search Item</button>
+        <button class="action-button" onclick="window.location.href='/chatbot';">Ask AI</button>
+    </div>
+
+    <div class="title-separator"></div>
+
+    <script src="{{ url_for('static', filename='js/hii.js') }}"></script>
+
+</body>
+</html>
+
+

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barcode Capture/Upload</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #121212, #1F1F1F);
+            color: #FFFFFF;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        form {
+            background-color: #2A2A2A;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        form:hover {
+            transform: scale(1.02);
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #4CAF50;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        input[type="file"] {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="file"]:hover {
+            background-color: #444;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        button:hover {
+            background-color: #45A049;
+            transform: translateY(-2px);
+        }
+        p {
+            color: red;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" enctype="multipart/form-data" id="barcode-form">
+        <h1>Upload Your Barcode Image Here!</h1>
+        <input type="file" id="barcode_file" name="barcode_file" accept="image/*" capture="camera">
+        <input type="hidden" id="search_with_ai" name="search_with_ai" value="false">
+        <input type="hidden" id="manual_entry" name="manual_entry" value="false">
+        <button type="submit">Submit</button>
+
+        {% if error %}
+            <p>{{ error }}</p>
+        {% endif %}
+    </form>
+
+    <script>
+        {% if show_popup %}
+            if (confirm("Product not found in the database. Do you want to search with the help of AI?")) {
+                document.getElementById('search_with_ai').value = 'true';
+                document.getElementById('barcode-form').submit();
+            }
+        {% endif %}
+    </script>
+
+    <script>
+        {% if allow_manual %}
+            if (confirm("Barcode could not be read. Do you want to manually enter the product name?")) {
+                document.getElementById('manual_entry').value = 'true';
+                document.getElementById('barcode-form').submit();
+            }
+        {% endif %}
+    </script>
+</body>
+</html>
