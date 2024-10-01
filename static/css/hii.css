@@ -247,10 +247,11 @@ display: flex;
     align-items: center;     /* Center buttons vertically */
     gap: 20px;              /* Space between buttons */
     position: absolute;      /* Absolute positioning */
-    top: 50%;                /* Position from the top */
+    top: 40%;                /* Position from the top */
     left: 50%;               /* Position from the left */
     transform: translate(-50%, -50%); /* Center the container */
 }
+/* Updated button container for better alignment */
 #button-container {
     display: flex;
     justify-content: center; /* Center buttons horizontally */
@@ -262,23 +263,51 @@ display: flex;
     transform: translate(-50%, -50%); /* Center the container */
 }
 
+/* Enhanced action button styling */
 .action-button {
-    padding: 20px 40px;      /* Increased button padding for bigger size */
-    font-size: 1.5rem;       /* Larger font size */
+    padding: 25px 60px;      /* Increased button padding for bigger size */
+    font-size: 2rem;         /* Larger font size */
     color: white;            /* Text color */
-    background-color: #333;  /* Button background color */
+    background: linear-gradient(45deg, #434343, #000000);  /* Gradient background */
     border: none;            /* Remove default border */
-    border-radius: 8px;     /* Slightly more rounded corners for larger button */
+    border-radius: 15px;     /* More rounded corners for a modern look */
     cursor: pointer;         /* Pointer cursor on hover */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Transition effect with scaling */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.1); /* Subtle shadow for depth */
 }
 
+/* Add a hover effect to enhance interactivity */
 .action-button:hover {
-    background-color: #555;  /* Darker background on hover */
-    transform: scale(1.05);  /* Slightly increase size on hover for interactivity */
+    background: linear-gradient(45deg, #000000, #434343); /* Reverse the gradient on hover */
+    transform: scale(1.1); /* Slightly increase size on hover for interactivity */
+    box-shadow: 0px 8px 20px rgba(255, 255, 255, 0.2); /* Larger shadow for a "lifted" effect */
 }
 
+/* Active/pressed state for the button */
+.action-button:active {
+    transform: scale(1.05); /* Slightly smaller scale when clicked */
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.3); /* Less shadow to simulate press */
+}
+
+/* Adjust the button text styling */
+.action-button span {
+    font-weight: bold; /* Make the button text bold */
+    text-transform: uppercase; /* Convert text to uppercase */
+    letter-spacing: 2px; /* Add spacing between letters for readability */
+}
+
+/* Optional: If you want to add animation to button text on hover */
+.action-button:hover span {
+    transition: transform 0.3s ease;
+    transform: translateY(-2px); /* Slight upward shift for text */
+}
+
+/* Title Styling */
 h2 {
     color: white;
-    font-size: 2rem;         /* Adjust the title size for better visibility with bigger buttons */
+    font-size: 2.5rem; /* Slightly larger title for better visibility */
+    text-align: center; /* Center the title */
+    margin-bottom: 40px; /* Add space between title and buttons */
+    font-family: 'KG Blank Space', sans-serif;
 }
+
