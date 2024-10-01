@@ -8,7 +8,7 @@ import pyzbar.pyzbar as pyzbar
 
 app = Flask(__name__)
 # Configure the GenAI with your API key
-genai.configure(api_key="AIzaSyApoKjsDAPW7YkWKzVlXoqTAkfENWQD1AA")
+genai.configure(api_key="Gemini_Api")
 
 # Instantiate the Gemini AI model with the specified configuration
 model = genai.GenerativeModel('gemini-1.5-flash', generation_config={"response_mime_type": "application/json"})
